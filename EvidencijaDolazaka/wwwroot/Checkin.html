@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link rel="stylesheet" href="Checkin-style.css">
+    </head>
+    <body onload="startTime()">
+
+        <div id="date_container">
+            <input id="date" disabled>
+        </div>
+        <div id="time_container">
+            <input id="time" disabled>
+        </div>
+        <div id="display_container">
+            <input id="display" type="password" disabled>
+        </div>
+
+        <div id="pin_container">
+            <form action="" id="pin">
+            <div class="btn_cont">
+                <button id="btn1" class="btn" value="1" onclick="return false">1</button>
+                <button id="btn2" class="btn" value="2" onclick="return false">2</button>
+                <button id="btn3" class="btn" value="3" onclick="return false">3</button>
+            </div>
+            <div class="btn_cont">
+                <button id="btn4" class="btn" value="4" onclick="return false">4</button>
+                <button id="btn5" class="btn" value="5" onclick="return false">5</button>
+                <button id="btn6" class="btn" value="6" onclick="return false">6</button>
+            </div>
+            <div class="btn_cont">
+                <button id="btn7" class="btn" value="7" onclick="return false">7</button>
+                <button id="btn8" class="btn" value="8" onclick="return false">8</button>
+                <button id="btn9" class="btn" value="9" onclick="return false">9</button>
+            </div>
+            <div class="btn_cont">
+                <button id="accept" class="btn" onclick="CheckChar()">Prihvati</button>
+                <button id="btn0" class="btn" value="0" onclick="return false">0</button>
+                <button id="reset" class="btn" onclick="return false">Resetuj</button>
+            </div>
+            </form>
+        </div>
+
+        
+            
+        <div id="logo_container">
+            <img src="sources/logo.jpg">
+        </div>
+        
+        <script src="Checkin-script.js" async defer></script>
+    </body>
+</html>
+

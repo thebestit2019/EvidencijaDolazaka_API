@@ -44,8 +44,16 @@ namespace EvidencijaDolazaka
                 app.UseHsts();
             }
 
+            DefaultFilesOptions options = new DefaultFilesOptions();
+                options.DefaultFileNames.Clear();
+                options.DefaultFileNames.Add("Checkin.html");
+                app.UseDefaultFiles(options);
+               app.UseStaticFiles();
+
             app.UseHttpsRedirection();
             app.UseMvc();
+            // app.UseDefaultFiles();
+            // app.UseStaticFiles();
         }
     }
 }

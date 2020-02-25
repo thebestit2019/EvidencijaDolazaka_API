@@ -12177,11 +12177,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projekti\\EvidencijaDolazaka\\EvidencijaDolazaka.csproj",
+      "projectUniqueName": "E:\\Projekti\\EvidencijaDolazaka_API\\EvidencijaDolazaka\\EvidencijaDolazaka.csproj",
       "projectName": "EvidencijaDolazaka",
-      "projectPath": "E:\\Projekti\\EvidencijaDolazaka\\EvidencijaDolazaka.csproj",
+      "projectPath": "E:\\Projekti\\EvidencijaDolazaka_API\\EvidencijaDolazaka\\EvidencijaDolazaka.csproj",
       "packagesPath": "C:\\Users\\Ikica\\.nuget\\packages\\",
-      "outputPath": "E:\\Projekti\\EvidencijaDolazaka\\obj\\",
+      "outputPath": "E:\\Projekti\\EvidencijaDolazaka_API\\EvidencijaDolazaka\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

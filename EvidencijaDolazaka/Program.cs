@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace EVIDENCIJA_DOLAZAKA
+namespace EvidencijaDolazaka
 {
     public class Program
     {
