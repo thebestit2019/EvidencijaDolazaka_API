@@ -1,0 +1,14 @@
+E:\Projekti\EvidencijaDolazaka\bin\Debug\netcoreapp2.2\EvidencijaDolazaka.deps.json
+E:\Projekti\EvidencijaDolazaka\bin\Debug\netcoreapp2.2\EvidencijaDolazaka.runtimeconfig.json
+E:\Projekti\EvidencijaDolazaka\bin\Debug\netcoreapp2.2\EvidencijaDolazaka.runtimeconfig.dev.json
+E:\Projekti\EvidencijaDolazaka\bin\Debug\netcoreapp2.2\EvidencijaDolazaka.dll
+E:\Projekti\EvidencijaDolazaka\bin\Debug\netcoreapp2.2\EvidencijaDolazaka.pdb
+E:\Projekti\EvidencijaDolazaka\obj\Debug\netcoreapp2.2\EvidencijaDolazaka.csprojAssemblyReference.cache
+E:\Projekti\EvidencijaDolazaka\obj\Debug\netcoreapp2.2\EvidencijaDolazaka.csproj.CoreCompileInputs.cache
+E:\Projekti\EvidencijaDolazaka\obj\Debug\netcoreapp2.2\EvidencijaDolazaka.RazorAssemblyInfo.cache
+E:\Projekti\EvidencijaDolazaka\obj\Debug\netcoreapp2.2\EvidencijaDolazaka.RazorAssemblyInfo.cs
+E:\Projekti\EvidencijaDolazaka\obj\Debug\netcoreapp2.2\EvidencijaDolazaka.AssemblyInfoInputs.cache
+E:\Projekti\EvidencijaDolazaka\obj\Debug\netcoreapp2.2\EvidencijaDolazaka.AssemblyInfo.cs
+E:\Projekti\EvidencijaDolazaka\obj\Debug\netcoreapp2.2\EvidencijaDolazaka.RazorTargetAssemblyInfo.cache
+E:\Projekti\EvidencijaDolazaka\obj\Debug\netcoreapp2.2\EvidencijaDolazaka.dll
+E:\Projekti\EvidencijaDolazaka\obj\Debug\netcoreapp2.2\EvidencijaDolazaka.pdb
