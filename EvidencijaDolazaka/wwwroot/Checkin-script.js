@@ -110,7 +110,7 @@ function CheckChar(){
 function CheckPIN(){
 
     var niz = new Array(); // there iz line for insert conection vith sql base 
-    niz = ['2345','1234','3456','4567']; //test
+    niz = ['2345','1234','3456','4567', '1111']; //test
     var p = false;
     let i = 0;
 
@@ -131,6 +131,15 @@ function CheckPIN(){
 
 
 function Login(){ 
+    let pinInt = parseInt(PIN);
+
+    fetch(`https://localhost:5000/empCont/${pinInt}`)
+    .then(res => res.json())
+    .then(el => console.log(el))
+    
+
+
+
     var ansver = window.confirm("Da li ste to vi " + PIN); // insert name and other parameter for person
     if(ansver){
         alert("Uspesno ste se logovali"); // inserf function for take photography

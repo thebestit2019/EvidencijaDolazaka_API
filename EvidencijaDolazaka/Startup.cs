@@ -28,7 +28,7 @@ namespace EvidencijaDolazaka
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddEntityFrameworkNpgsql().AddDbContext<ControllContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ControllConnection")));
+            // services.AddEntityFrameworkNpgsql().AddDbContext<ControllContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ControllConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

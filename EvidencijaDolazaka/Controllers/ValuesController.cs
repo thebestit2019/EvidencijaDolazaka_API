@@ -2,19 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EvidencijaDolazaka.models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace EvidencijaDolazaka.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("/empCont")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
+
+        public ControllContext Context { get; set; }
+        public JsonSerializerSettings JsonSer { get; set; }
+
+        public ValuesController(){
+            Context = new ControllContext();
+            JsonSer = new JsonSerializerSettings() {Formatting = Formatting.Indented};
+        }
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        [Route("/{pin}")]
+        [DisableCors]
+        public JsonResult GetAllEmployees(int pin)
         {
-            return new string[] { "value1", "value2" };
+            var res = from Employee in Context.employee where Employee.Pin == pin select Employee;
+
+            return new JsonResult(res, JsonSer);
         }
 
         // GET api/values/5
