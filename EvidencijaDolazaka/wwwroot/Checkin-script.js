@@ -110,7 +110,7 @@ function CheckChar(){
 function CheckPIN(){
 
     var niz = new Array(); // there iz line for insert conection vith sql base 
-    niz = ['2345','1234','3456','4567', '1111']; //test
+    niz = ['2345','1234','3456','4567', '1111', '1499', '2222']; //test
     var p = false;
     let i = 0;
 
@@ -118,8 +118,7 @@ function CheckPIN(){
         if(niz[i] == PIN)
         {    // document.getElementById("d").innerHTML = "Uspesno ste se prijavili kao " + pom;
             p = true;
-            alert("Uspesno ste se logovali");
-            Login(); //call function for login or login2
+            LoginAPI(); //call function for login or login2
 
         }
     }
@@ -130,23 +129,34 @@ function CheckPIN(){
 
 
 
-function Login(){ 
+async function LoginAPI(){ 
     let pinInt = parseInt(PIN);
+    let empName, empSur, empFunc, empSector;
 
-    fetch(`https://localhost:5000/empCont/${pinInt}`)
-    .then(res => res.json())
-    .then(el => console.log(el))
-    
+    fetch(`/values/emp/${pinInt}`)
+    .then(resp => resp.json())
+    .then(el => {
 
-
-
-    var ansver = window.confirm("Da li ste to vi " + PIN); // insert name and other parameter for person
-    if(ansver){
-        alert("Uspesno ste se logovali"); // inserf function for take photography
-    }
-    else{
-        alert("Niste se logovali");
-    }
+        el.forEach(employee => {
+            var ansver = window.confirm(`${employee.Ime} ${employee.Prezime}` + '\n' + `${employee.Funkcija}` + '\n' + `${employee.Sluzba}`); // insert name and other parameter for person
+            if(ansver){
+                alert("Uspesno ste se logovali"); // inserf function for take photography
+            }
+            else{
+                alert("Niste se logovali");
+            }
+        });
+    })
+        
+    // 
 }
+
+function Login(){
+
+    // LoginAPI().then(data => console.log(data))
+
+    
+}
+
 
 

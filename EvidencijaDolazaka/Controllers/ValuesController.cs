@@ -9,12 +9,12 @@ using Newtonsoft.Json;
 
 namespace EvidencijaDolazaka.Controllers
 {
-    [Route("/empCont")]
+    [Route("[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
 
-        public ControllContext Context { get; set; }
+        public ControllContext Context {get; set;}
         public JsonSerializerSettings JsonSer { get; set; }
 
         public ValuesController(){
@@ -22,21 +22,24 @@ namespace EvidencijaDolazaka.Controllers
             JsonSer = new JsonSerializerSettings() {Formatting = Formatting.Indented};
         }
         // GET api/values
-        [HttpGet]
-        [Route("/{pin}")]
-        [DisableCors]
-        public JsonResult GetAllEmployees(int pin)
-        {
-            var res = from Employee in Context.employee where Employee.Pin == pin select Employee;
+        // [HttpGet("/{pin}")]
+        // [DisableCors]
+        // public JsonResult GetEmployee(int pin)
+        // {
+        //     var res = from Employee in Context.employee where Employee.Pin == pin select Employee;
+        //     //var res = from Employee in Context.employee where Employee.Pin == pin select Employee;
 
-            return new JsonResult(res, JsonSer);
-        }
+        //     return new JsonResult(res, JsonSer);
+        // }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet]
+        [Route("emp/{id}")]
+        public JsonResult Get(int id)
         {
-            return "value";
+            //var res = from Employee in Context.employee where Employee.Pin == id select Employee;
+            var em = Context.employee.Where(e => e.Pin == id);
+            return new JsonResult(em, JsonSer) ;
         }
 
         // POST api/values

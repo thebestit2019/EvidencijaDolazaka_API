@@ -43,21 +43,21 @@ namespace EvidencijaDolazaka.Migrations
                     b.Property<string>("Titula")
                         .HasColumnName("titula");
 
-                    b.Property<string>("Vreme_do_1")
+                    b.Property<TimeSpan>("Vreme_do_1")
                         .HasColumnName("vreme_do_1");
 
-                    b.Property<string>("Vreme_do_2")
+                    b.Property<TimeSpan>("Vreme_do_2")
                         .HasColumnName("vreme_do_2");
 
-                    b.Property<string>("Vreme_od_1")
+                    b.Property<TimeSpan>("Vreme_od_1")
                         .HasColumnName("vreme_od_1");
 
-                    b.Property<string>("Vreme_od_2")
+                    b.Property<TimeSpan>("Vreme_od_2")
                         .HasColumnName("vreme_od_2");
 
                     b.HasKey("Jmbg");
 
-                    b.ToTable("radnici");
+                    b.ToTable("radnici","kontrola_dolazaka");
                 });
 
             modelBuilder.Entity("EvidencijaDolazaka.models.Time", b =>
@@ -83,7 +83,7 @@ namespace EvidencijaDolazaka.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("vreme");
+                    b.ToTable("vreme","kontrola_dolazaka");
                 });
 #pragma warning restore 612, 618
         }

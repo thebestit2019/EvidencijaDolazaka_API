@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EvidencijaDolazaka.models{
 
-    [Table("vreme")]
+    [Table("vreme", Schema="kontrola_dolazaka")]
     public class Time{
 
         [Key]

@@ -1,11 +1,12 @@
 
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace EvidencijaDolazaka.models{
 
-    [Table("radnici")]
+    [Table("radnici", Schema="kontrola_dolazaka")]
     public class Employee{
 
         [Key]
@@ -31,16 +32,16 @@ namespace EvidencijaDolazaka.models{
         public string Sluzba {get; set;}
 
         [Column("vreme_od_1")]
-        public string Vreme_od_1 {get; set;}
+        public TimeSpan Vreme_od_1 {get; set;}
 
         [Column("vreme_do_1")]
-        public string Vreme_do_1 {get; set;}
+        public TimeSpan Vreme_do_1 {get; set;}
 
         [Column("vreme_od_2")]
-        public string Vreme_od_2 {get; set;}
+        public TimeSpan Vreme_od_2 {get; set;}
 
         [Column("vreme_do_2")]
-        public string Vreme_do_2 {get; set;}
+        public TimeSpan Vreme_do_2 {get; set;}
 
 
     }
