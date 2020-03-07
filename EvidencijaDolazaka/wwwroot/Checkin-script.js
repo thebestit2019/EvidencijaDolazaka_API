@@ -1,5 +1,5 @@
 
-
+// let dateVal;
 let date = document.getElementById("date");
 let dateObj = new Date();
 let dd = dateObj.getDate();
@@ -9,9 +9,10 @@ let yyyy = dateObj.getFullYear();
 if (mm < 10) {
     mm = '0' + mm
 }
-
+let Datum = dd + '.' + mm + '.' + yyyy;
 date.value = dd + '.' + mm + '.' + yyyy;
 
+var VremeDolaska;
 function startTime() {
     timeObj = new Date();
     let hour = timeObj.getHours();
@@ -19,6 +20,7 @@ function startTime() {
     let sec = timeObj.getSeconds();
     min = checkTime(min);
     sec = checkTime(sec);
+    VremeDolaska = `${hour}:${min}:${sec}`;
     document.getElementById('time').value = hour + ":" + min + ":" + sec;
     let t = setTimeout(startTime, 500);
 }
@@ -110,16 +112,16 @@ function CheckChar(){
 function CheckPIN(){
 
     var niz = new Array(); // there iz line for insert conection vith sql base 
-    niz = ['2345','1234','3456','4567', '1111', '1499', '2222']; //test
+    niz = ['1111', '1499', '2222', '3333', '4444', '7777', '2405']; //test
     var p = false;
     let i = 0;
 
     for (let i = 0; i < niz.length; i++) {
         if(niz[i] == PIN)
-        {    // document.getElementById("d").innerHTML = "Uspesno ste se prijavili kao " + pom;
+        {   
             p = true;
             LoginAPI(); //call function for login or login2
-
+            
         }
     }
     if(p == false){
@@ -128,19 +130,39 @@ function CheckPIN(){
 }
 
 
-
 async function LoginAPI(){ 
     let pinInt = parseInt(PIN);
-    let empName, empSur, empFunc, empSector;
+    
 
     fetch(`/values/emp/${pinInt}`)
     .then(resp => resp.json())
     .then(el => {
 
         el.forEach(employee => {
-            var ansver = window.confirm(`${employee.Ime} ${employee.Prezime}` + '\n' + `${employee.Funkcija}` + '\n' + `${employee.Sluzba}`); // insert name and other parameter for person
+            var ansver = window.confirm(`${employee.Ime} ${employee.Prezime}` + '\n' + `${employee.Funkcija}` + '\n' + `${employee.Sluzba}`); 
             if(ansver){
-                alert("Uspesno ste se logovali"); // inserf function for take photography
+                // inserf function for take photography
+
+                var data = {};
+                data.Jmbg = employee.Jmbg;
+                data.Datum = Datum;
+                data.VremeDolaska = VremeDolaska;
+                
+
+                let xhr = new XMLHttpRequest();
+
+                xhr.open('POST', '/values/post', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.upload.onload = function(){
+                    alert("Uspesno ste se logovali");
+                }
+                xhr.upload.onerror = function(){
+                    alert("Doslo je do greske");
+                }
+                var dataJson = JSON.stringify(data)
+                xhr.send(dataJson)
+
+                 
             }
             else{
                 alert("Niste se logovali");
@@ -148,7 +170,7 @@ async function LoginAPI(){
         });
     })
         
-    // 
+    
 }
 
 function Login(){

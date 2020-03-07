@@ -8,24 +8,27 @@ namespace EvidencijaDolazaka.models{
     public class Time{
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
         public int ID {get; set;}
 
         [Column("datum")]
         public DateTime Datum {get; set;}
 
-        [Column("vreme dolaska")]
+        [Column("vreme_dolaska")]
         public TimeSpan VremeDolaska {get; set;}
 
-        [Column("vreme odlaska")]
+        [Column("vreme_odlaska")]
         public TimeSpan VremeOdlaska {get; set;}
 
         [Column("slika_1")]
-        public byte[] Slika1 {get; set;}
+        public string Slika1 {get; set;}
 
         [Column("slika_2")]
-        public byte[] Slika2 {get; set;}
+        public string Slika2 {get; set;}
 
+        [Column("radnik")]
+        public string Radnik {get; set;}
 
     }
 }
