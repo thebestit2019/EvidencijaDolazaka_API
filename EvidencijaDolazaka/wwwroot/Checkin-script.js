@@ -1,3 +1,12 @@
+//set webcam
+Webcam.set({
+    width: 80,
+    height: 60,
+    image_format: 'jpeg',
+    jpeg_quality: 90
+});
+
+Webcam.attach('#my_camera');
 
 // let dateVal;
 let date = document.getElementById("date");
@@ -92,7 +101,7 @@ function reset(){
 function CheckChar(){
     //pom = document.getElementById("display").value;   //  pom iz valiable for insert id
     if(PIN.length == 4){
-
+                
                 CheckPIN();    //  call function for check id in base
                                // /document.getElementById("d").innerHTML = "Uspesno prosao test broja karaktera";  onlu for test          
     }
@@ -108,16 +117,35 @@ function CheckChar(){
    reset();
 }
 
+let allPins = new Array;
+function printPins(){
+
+
+    fetch('/values/allPins')
+    .then(resp => resp.json())
+    .then(elements => {
+        elements.forEach(respPin => {
+            allPins.push(respPin);
+        })
+    })
+    .then(() => {
+        for (let index = 0; index < allPins.length; index++) {
+            console.log(allPins[index]);
+            
+        }
+    })
+
+}
 
 function CheckPIN(){
 
-    var niz = new Array(); // there iz line for insert conection vith sql base 
-    niz = ['1111', '1499', '2222', '3333', '4444', '7777', '2405']; //test
-    var p = false;
-    let i = 0;
+    
 
-    for (let i = 0; i < niz.length; i++) {
-        if(niz[i] == PIN)
+    var p = false;
+    
+
+    for (let i = 0; i < allPins.length; i++) {
+        if(allPins[i] == PIN)
         {   
             p = true;
             LoginAPI(); //call function for login or login2
@@ -141,7 +169,12 @@ async function LoginAPI(){
         el.forEach(employee => {
             var ansver = window.confirm(`${employee.Ime} ${employee.Prezime}` + '\n' + `${employee.Funkcija}` + '\n' + `${employee.Sluzba}`); 
             if(ansver){
-                // inserf function for take photography
+                // inserf function to take pic
+                (function takeSnapshot(){
+                    Webcam.snap(function (data_uri){
+                        // document.getElementById('results').innerHTML = '<img src="'+data_uri+'" />';
+                    });
+                })();
 
                 var data = {};
                 data.Jmbg = employee.Jmbg;

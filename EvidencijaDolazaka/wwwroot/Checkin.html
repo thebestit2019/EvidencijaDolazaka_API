@@ -12,8 +12,9 @@
 
 
         <link rel="stylesheet" href="Checkin-style.css">
+        <script type="text/javascript" src="webcam.min.js"></script>
     </head>
-    <body onload="startTime()">
+    <body onload="startTime(); printPins()">
 
         <div id="date_container">
             <input id="date" disabled>
@@ -49,12 +50,12 @@
             </div>
             </form>
         </div>
-
-        
-            
         <div id="logo_container">
             <img src="sources/logo.jpg">
         </div>
+
+        <div id="my_camera"></div>
+        <!-- <div id="results"></div> -->
         
         <script src="Checkin-script.js" async defer></script>
     </body>

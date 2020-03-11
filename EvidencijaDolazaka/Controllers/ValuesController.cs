@@ -24,17 +24,25 @@ namespace EvidencijaDolazaka.Controllers
             JsonSer = new JsonSerializerSettings() {Formatting = Formatting.Indented};
         }
         
-        // GET api/values/5
+        // GET values/{id} - sends full worker object with given pin
         [HttpGet]
-        [Route("emp/{id}")]
+        [Route("emp/{pin}")]
         [Produces("application/json")]
-        public JsonResult Get(int id)
+        public JsonResult Get(int pin)
         {
             //var res = from Employee in Context.employee where Employee.Pin == id select Employee;
-            var em = Context.employee.Where(e => e.Pin == id);
+            var em = Context.employee.Where(e => e.Pin == pin);
             return new JsonResult(em, JsonSer) ;
         }
        
+       // GET values/allPins - returns all pins from database
+       
+        [Route("allPins")]
+        public JsonResult GetAllPins(){
+            var pins = from Employee in Context.employee select Employee.Pin;
+
+            return new JsonResult(pins, JsonSer);
+        }
 
         public class dataJson{
             public string Jmbg {get; set;}
