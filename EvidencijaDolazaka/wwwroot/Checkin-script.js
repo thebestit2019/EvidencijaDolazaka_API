@@ -8,7 +8,7 @@ Webcam.set({
 
 Webcam.attach('#my_camera');
 
-// let dateVal;
+//Initialize date
 let date = document.getElementById("date");
 let dateObj = new Date();
 let dd = dateObj.getDate();
@@ -21,6 +21,7 @@ if (mm < 10) {
 let Datum = dd + '.' + mm + '.' + yyyy;
 date.value = dd + '.' + mm + '.' + yyyy;
 
+//initialize time
 var VremeDolaska;
 function startTime() {
     timeObj = new Date();
@@ -38,9 +39,11 @@ if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
 
+//display time and initialize varible to store pin in it
 let display = document.getElementById("display");
 let PIN = '';
 
+//adding evnt listeners for all buttons
 document.getElementById("btn1").addEventListener("click", function () {
     input(document.getElementById("btn1").value)
 });
@@ -81,6 +84,7 @@ document.getElementById("btn0").addEventListener("click", function () {
     input(document.getElementById("btn0").value)
 });
 
+//adding value to pin variable and displaying it on screen
 function input(value){
     display.value += value;
     PIN += value;
@@ -88,6 +92,7 @@ function input(value){
     
 }
 
+//reset function for reset button
 document.getElementById("reset").addEventListener("click", reset);
 
 function reset(){
@@ -96,27 +101,7 @@ function reset(){
     console.log("PIN " + PIN);
 }
   
-
-//var pom; 
-function CheckChar(){
-    //pom = document.getElementById("display").value;   //  pom iz valiable for insert id
-    if(PIN.length == 4){
-                
-                CheckPIN();    //  call function for check id in base
-                               // /document.getElementById("d").innerHTML = "Uspesno prosao test broja karaktera";  onlu for test          
-    }
-    else{
-
-        if(PIN.length < 4)
-        alert("Uneli ste nedovoljan broj karaktera, pokusajte ponovo");
-        else
-        alert("Uneli ste previse karaktera, pokusajte ponovo");  
-
-    }
-   // document.getElementById("display").value = "";
-   reset();
-}
-
+//fetching all pins from DB into array
 let allPins = new Array;
 function printPins(){
 
@@ -137,13 +122,11 @@ function printPins(){
 
 }
 
+//checking if entered pin is valid. On true calling login function
 function CheckPIN(){
-
-    
 
     var p = false;
     
-
     for (let i = 0; i < allPins.length; i++) {
         if(allPins[i] == PIN)
         {   
@@ -157,7 +140,10 @@ function CheckPIN(){
     }
 }
 
+//defining variable to store picture
+var pic;
 
+//fetching data to show on popup, and sending data to DB if true
 async function LoginAPI(){ 
     let pinInt = parseInt(PIN);
     
@@ -169,21 +155,25 @@ async function LoginAPI(){
         el.forEach(employee => {
             var ansver = window.confirm(`${employee.Ime} ${employee.Prezime}` + '\n' + `${employee.Funkcija}` + '\n' + `${employee.Sluzba}`); 
             if(ansver){
-                // inserf function to take pic
+
+                //snappshot taking function
                 (function takeSnapshot(){
                     Webcam.snap(function (data_uri){
-                        // document.getElementById('results').innerHTML = '<img src="'+data_uri+'" />';
+                        pic = data_uri;
                     });
                 })();
 
+                //forming data object to send
                 var data = {};
                 data.Jmbg = employee.Jmbg;
                 data.Datum = Datum;
                 data.VremeDolaska = VremeDolaska;
+                data.Slika_1 = pic;
                 
-
+                //creating request object
                 let xhr = new XMLHttpRequest();
 
+                //sending data to controller with AJAX
                 xhr.open('POST', '/values/post', true);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.upload.onload = function(){
@@ -205,13 +195,3 @@ async function LoginAPI(){
         
     
 }
-
-function Login(){
-
-    // LoginAPI().then(data => console.log(data))
-
-    
-}
-
-
-

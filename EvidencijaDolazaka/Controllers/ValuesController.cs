@@ -30,7 +30,7 @@ namespace EvidencijaDolazaka.Controllers
         [Produces("application/json")]
         public JsonResult Get(int pin)
         {
-            //var res = from Employee in Context.employee where Employee.Pin == id select Employee;
+            
             var em = Context.employee.Where(e => e.Pin == pin);
             return new JsonResult(em, JsonSer) ;
         }
@@ -48,9 +48,10 @@ namespace EvidencijaDolazaka.Controllers
             public string Jmbg {get; set;}
             public string Datum {get; set;}
             public string VremeDolaska {get; set;}
+            public string Slika_1 {get; set;}
         }
 
-        // POST api/values
+        // POST api/values - sending data to database table Vreme, and returns response in form of Ok, or BadRequest
         [HttpPost]
         [Route("post")]
 
@@ -64,7 +65,7 @@ namespace EvidencijaDolazaka.Controllers
                 Datum = Convert.ToDateTime(data.Datum),
                 VremeDolaska = TimeSpan.Parse(data.VremeDolaska),
                 VremeOdlaska = TimeSpan.Parse("14:00"),
-                Slika1 = "neka slika1",
+                Slika1 = data.Slika_1,
                 Slika2 = "neka slika2",
                 Radnik = data.Jmbg
             };
@@ -76,20 +77,6 @@ namespace EvidencijaDolazaka.Controllers
             }else{
                 return BadRequest();
             }
-        }
-
-       
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
