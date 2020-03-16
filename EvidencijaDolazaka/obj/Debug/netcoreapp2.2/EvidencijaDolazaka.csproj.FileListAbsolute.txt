@@ -25,4 +25,7 @@ E:\Projekti\EvidencijaDolazaka_API\EvidencijaDolazaka\obj\Debug\netcoreapp2.2\Ev
 E:\Projekti\EvidencijaDolazaka_API\EvidencijaDolazaka\obj\Debug\netcoreapp2.2\EvidencijaDolazaka.RazorTargetAssemblyInfo.cache
 E:\Projekti\EvidencijaDolazaka_API\EvidencijaDolazaka\obj\Debug\netcoreapp2.2\EvidencijaDolazaka.dll
 E:\Projekti\EvidencijaDolazaka_API\EvidencijaDolazaka\obj\Debug\netcoreapp2.2\EvidencijaDolazaka.pdb
-E:\Projekti\EvidencijaDolazaka_API\EvidencijaDolazaka\obj\Debug\netcoreapp2.2\EvidencijaDolazaka.csproj.CoreCompileInputs.cache
+E:\Projekti\EvidencijaDolazaka_API\EvidencijaDolazaka\bin\Debug\netcoreapp2.2\appsettings.Development.json
+E:\Projekti\EvidencijaDolazaka_API\EvidencijaDolazaka\bin\Debug\netcoreapp2.2\appsettings.json
+E:\Projekti\EvidencijaDolazaka_API\EvidencijaDolazaka\bin\Debug\netcoreapp2.2\global.json
+E:\Projekti\EvidencijaDolazaka_API\EvidencijaDolazaka\bin\Debug\netcoreapp2.2\Properties\launchSettings.json

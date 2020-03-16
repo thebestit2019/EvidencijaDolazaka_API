@@ -62,7 +62,7 @@ namespace EvidencijaDolazaka.Controllers
             
             var newTimeEntry = new Time {
                 
-                Datum = Convert.ToDateTime(data.Datum),
+                Datum = Convert.ToDateTime(data.Datum, new System.Globalization.CultureInfo("pt-BR")),
                 VremeDolaska = TimeSpan.Parse(data.VremeDolaska),
                 VremeOdlaska = TimeSpan.Parse("14:00"),
                 Slika1 = data.Slika_1,

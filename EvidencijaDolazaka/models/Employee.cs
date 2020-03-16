@@ -43,6 +43,9 @@ namespace EvidencijaDolazaka.models{
         [Column("vreme_do_2")]
         public TimeSpan Vreme_do_2 {get; set;}
 
+        [Column("id")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ID {get; set;}
 
     }
 }
